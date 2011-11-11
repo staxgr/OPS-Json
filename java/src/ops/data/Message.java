@@ -17,24 +17,15 @@
 * You should have received a copy of the GNU Lesser General Public License
 * along with OPS (Open Publish Subscribe).  If not, see <http://www.gnu.org/licenses/>.
 */
-package ops.examples;
+package ops.data;
 
-import java.util.ArrayList;
-import java.util.List;
+public class Message {
+	
+	public String publisherName;
+	public int strength;
+	public String key;
+	public String topicName;
+	public String dataType;
 
-
-
-/**
- *
- * @author Anton
- */
-public class SomeData extends BaseData{
-    public int i;
-    public String hatt;
-    public double d = 3.1415;
-    public List<Integer> is = new ArrayList<Integer>();
-    public FulData ful;
 
 }
-
-

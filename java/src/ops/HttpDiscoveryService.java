@@ -17,24 +17,25 @@
 * You should have received a copy of the GNU Lesser General Public License
 * along with OPS (Open Publish Subscribe).  If not, see <http://www.gnu.org/licenses/>.
 */
-package ops.examples;
+package ops;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URL;
 
+class HttpDiscoveryService {
 
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		final URL warUrl = Discovery.class.getClassLoader().getResource("ops/participant/http/rest/");
+        try {
+        	WebServer.init();
+            WebServer.addWebApp("/ops", warUrl.toExternalForm());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-/**
- *
- * @author Anton
- */
-public class SomeData extends BaseData{
-    public int i;
-    public String hatt;
-    public double d = 3.1415;
-    public List<Integer> is = new ArrayList<Integer>();
-    public FulData ful;
+	}
 
 }
-
-

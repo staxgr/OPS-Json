@@ -17,24 +17,31 @@
 * You should have received a copy of the GNU Lesser General Public License
 * along with OPS (Open Publish Subscribe).  If not, see <http://www.gnu.org/licenses/>.
 */
-package ops.examples;
+package ops;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import ops.data.Message;
 
 
-/**
- *
- * @author Anton
- */
-public class SomeData extends BaseData{
-    public int i;
-    public String hatt;
-    public double d = 3.1415;
-    public List<Integer> is = new ArrayList<Integer>();
-    public FulData ful;
+public class FilteredDataListener<E extends Message> implements DataListener<E>{
+
+	protected final Filter[] filters;
+	private final DataListener<E> listener;
+	
+	public FilteredDataListener(DataListener<E> listener, Filter... filters) {
+		this.listener = listener;
+		this.filters = filters;
+		
+		
+	}
+	@Override
+	public final void onNewData(E data) {
+		for (Filter filter : filters) {
+			if(!filter.filter(data)) {
+				return;
+			}
+		}
+		listener.onNewData(data);		
+		
+	}
 
 }
-
-

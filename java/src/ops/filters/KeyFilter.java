@@ -17,24 +17,39 @@
 * You should have received a copy of the GNU Lesser General Public License
 * along with OPS (Open Publish Subscribe).  If not, see <http://www.gnu.org/licenses/>.
 */
-package ops.examples;
+package ops.filters;
 
-import java.util.ArrayList;
-import java.util.List;
+import ops.Filter;
+import ops.data.Message;
 
 
+public class KeyFilter implements Filter{
+	
+	private String key;
+	
+	public KeyFilter(String key) {
+		this.key = key;
 
-/**
- *
- * @author Anton
- */
-public class SomeData extends BaseData{
-    public int i;
-    public String hatt;
-    public double d = 3.1415;
-    public List<Integer> is = new ArrayList<Integer>();
-    public FulData ful;
+	}
+	
+	public String getKey() {
+		return key;
+	}
+	
+	public void setKey(String key) {
+		this.key = key;
+	}
+
+	@Override
+	public boolean filter(Message message) {
+
+		if(message.key == null && key != null) {
+			return false;
+		}
+		if(message.key == null && key == null) {
+			return true;
+		}
+		return message.key.equals(key);
+	}
 
 }
-
-

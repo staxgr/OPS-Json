@@ -17,24 +17,26 @@
 * You should have received a copy of the GNU Lesser General Public License
 * along with OPS (Open Publish Subscribe).  If not, see <http://www.gnu.org/licenses/>.
 */
-package ops.examples;
+package ops.filters;
 
-import java.util.ArrayList;
-import java.util.List;
+import ops.DataListener;
+import ops.FilteredDataListener;
+import ops.data.Message;
 
 
+public class KeyFilteredDataListener<E extends Message> extends FilteredDataListener<E>{
 
-/**
- *
- * @author Anton
- */
-public class SomeData extends BaseData{
-    public int i;
-    public String hatt;
-    public double d = 3.1415;
-    public List<Integer> is = new ArrayList<Integer>();
-    public FulData ful;
+	private KeyFilter filter;
+
+	public KeyFilteredDataListener(String key, DataListener<E> listener) {
+		super(listener, new KeyFilter(key));
+		filter = (KeyFilter) filters[0];	
+	}
+	
+	public KeyFilter getFilter() {
+		return filter;
+	}
+		
+	
 
 }
-
-

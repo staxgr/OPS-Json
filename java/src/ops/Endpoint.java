@@ -17,24 +17,41 @@
 * You should have received a copy of the GNU Lesser General Public License
 * along with OPS (Open Publish Subscribe).  If not, see <http://www.gnu.org/licenses/>.
 */
-package ops.examples;
+package ops;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 
+import com.google.gson.Gson;
 
-
-/**
- *
- * @author Anton
- */
-public class SomeData extends BaseData{
-    public int i;
-    public String hatt;
-    public double d = 3.1415;
-    public List<Integer> is = new ArrayList<Integer>();
-    public FulData ful;
+@Path("/endpoint")
+class Endpoint {
+	
+	private static Gson gson = new Gson();
+	
+	@PUT
+	@Produces("text/html;charset=UTF-8")
+	@Path("commit")
+	public static String commit(@QueryParam("topic") String topicName, @QueryParam("message") String jsonData) {
+		
+		
+		try {
+//			Message message = gson.fromJson(jsonData, Message.class);
+//			String dataType = message.dataType;
+//			String key = message.key;
+//			String topic = message.topicName;
+			
+			
+		} catch (Exception e) {
+			
+			return gson.toJson(new ClientResponse(false, e.getMessage()));
+			
+		}
+		
+		return gson.toJson(new ClientResponse(true));
+		
+	}
 
 }
-
-

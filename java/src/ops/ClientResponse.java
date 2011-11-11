@@ -17,24 +17,31 @@
 * You should have received a copy of the GNU Lesser General Public License
 * along with OPS (Open Publish Subscribe).  If not, see <http://www.gnu.org/licenses/>.
 */
-package ops.examples;
+package ops;
 
-import java.util.ArrayList;
-import java.util.List;
+class ClientResponse {
+	private boolean ok;
+	private String message;
+	
+	public ClientResponse() {
+		// TODO Auto-generated constructor stub
+	}
+		
+	public ClientResponse(boolean ok, String message) {
+		super();
+		this.ok = ok;
+		this.message = message;
+	}
 
+	public ClientResponse(boolean ok) {
+		super();
+		this.ok = ok;
+	}
 
-
-/**
- *
- * @author Anton
- */
-public class SomeData extends BaseData{
-    public int i;
-    public String hatt;
-    public double d = 3.1415;
-    public List<Integer> is = new ArrayList<Integer>();
-    public FulData ful;
-
+	public boolean isOk() {
+		return ok;
+	}
+	public String getMessage() {
+		return message;
+	}
 }
-
-
