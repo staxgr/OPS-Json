@@ -17,7 +17,7 @@
 * You should have received a copy of the GNU Lesser General Public License
 * along with OPS (Open Publish Subscribe).  If not, see <http://www.gnu.org/licenses/>.
 */
-package ops;
+package ops.http;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,10 +29,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
+
 import com.google.gson.Gson;
 
 @Path("/discovery")
-class Discovery {
+public class Discovery {
 	
 
 	private static Map<String, List<SubscriberDescriptor>> subs = new HashMap<String, List<SubscriberDescriptor>>();

@@ -18,10 +18,8 @@
 		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
 		<init-param>
 			<param-name>com.sun.jersey.config.property.packages</param-name>
-			<param-value>ops.participant.http</param-value>
+			<param-value>ops.http</param-value>
 		</init-param>
-		<!-- <init-param> <param-name>application</param-name> <param-value>com.saabgroup.cms.maga.MagaWebApplication</param-value> 
-			</init-param> -->
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 

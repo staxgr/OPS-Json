@@ -17,12 +17,12 @@
 * You should have received a copy of the GNU Lesser General Public License
 * along with OPS (Open Publish Subscribe).  If not, see <http://www.gnu.org/licenses/>.
 */
-package ops;
+package ops.http;
 
 import java.lang.reflect.Type;
 import java.util.List;
 
-import ops.Discovery.WaitResult;
+import ops.http.Discovery.WaitResult;
 
 import com.google.gson.reflect.TypeToken;
 

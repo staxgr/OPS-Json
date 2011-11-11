@@ -17,41 +17,41 @@
 * You should have received a copy of the GNU Lesser General Public License
 * along with OPS (Open Publish Subscribe).  If not, see <http://www.gnu.org/licenses/>.
 */
-package ops;
+package ops.http;
 
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 
-import com.google.gson.Gson;
+class PublisherDescriptor {
 
-@Path("/endpoint")
-class Endpoint {
-	
-	private static Gson gson = new Gson();
-	
-	@PUT
-	@Produces("text/html;charset=UTF-8")
-	@Path("commit")
-	public static String commit(@QueryParam("topic") String topicName, @QueryParam("message") String jsonData) {
-		
-		
-		try {
-//			Message message = gson.fromJson(jsonData, Message.class);
-//			String dataType = message.dataType;
-//			String key = message.key;
-//			String topic = message.topicName;
-			
-			
-		} catch (Exception e) {
-			
-			return gson.toJson(new ClientResponse(false, e.getMessage()));
-			
-		}
-		
-		return gson.toJson(new ClientResponse(true));
+	private String topic;
+	private String address;
+	private int port;
+	private ConnectionType connectionType = ConnectionType.UDP;
+
+	public PublisherDescriptor() {
 		
 	}
+	public PublisherDescriptor(String topic, String address, int port) {
+		this.topic = topic;
+		this.address = address;
+		this.port = port;
+		
+	}
+	
+	public String getTopic() {
+		return topic;
+	}
+	
+	public String getAddress() {
+		return address;
+	}
+	
+	public int getPort() {
+		return port;
+	}
+	
+	public ConnectionType getConnectionType() {
+		return connectionType;
+	}
+	
 
 }

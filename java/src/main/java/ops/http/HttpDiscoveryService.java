@@ -17,31 +17,26 @@
 * You should have received a copy of the GNU Lesser General Public License
 * along with OPS (Open Publish Subscribe).  If not, see <http://www.gnu.org/licenses/>.
 */
-package ops;
+package ops.http;
 
-class ClientResponse {
-	private boolean ok;
-	private String message;
-	
-	public ClientResponse() {
-		// TODO Auto-generated constructor stub
-	}
+import java.net.URL;
+
+
+class HttpDiscoveryService {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
 		
-	public ClientResponse(boolean ok, String message) {
-		super();
-		this.ok = ok;
-		this.message = message;
+		final URL warUrl = Discovery.class.getClassLoader().getResource("ops/http");
+        try {
+        	WebServer.init();
+            WebServer.addWebApp("/ops", warUrl.toExternalForm());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 	}
 
-	public ClientResponse(boolean ok) {
-		super();
-		this.ok = ok;
-	}
-
-	public boolean isOk() {
-		return ok;
-	}
-	public String getMessage() {
-		return message;
-	}
 }

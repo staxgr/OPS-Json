@@ -17,7 +17,7 @@
 * You should have received a copy of the GNU Lesser General Public License
 * along with OPS (Open Publish Subscribe).  If not, see <http://www.gnu.org/licenses/>.
 */
-package tests;
+package ops.tests;
 
 import static org.junit.Assert.assertEquals;
 

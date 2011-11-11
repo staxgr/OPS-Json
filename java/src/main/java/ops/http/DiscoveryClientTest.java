@@ -17,15 +17,16 @@
 * You should have received a copy of the GNU Lesser General Public License
 * along with OPS (Open Publish Subscribe).  If not, see <http://www.gnu.org/licenses/>.
 */
-package ops;
+package ops.http;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import java.net.URL;
 import java.util.List;
 
-
-import ops.Discovery.WaitResult;
+import ops.http.Discovery.WaitResult;
 
 import org.junit.After;
 import org.junit.Before;
@@ -39,7 +40,7 @@ public class DiscoveryClientTest {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		
-		final URL warUrl = Discovery.class.getClassLoader().getResource("ops/participant/http/rest/");
+		final URL warUrl = Discovery.class.getClassLoader().getResource("ops/http");
         try {
         	WebServer.init();
             WebServer.addWebApp("/ops", warUrl.toExternalForm());
