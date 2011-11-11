@@ -19,14 +19,16 @@
 */
 package ops;
 
+import java.io.UnsupportedEncodingException;
+
 import ops.data.Message;
 
 import com.google.gson.Gson;
 
 
 /**
- * 
- * @author Anton
+ * Class used as entry point to publishing data over OPS. Use Participant.createPublisher() to create instance of this class.
+ * @author staxgr
  */
 public class Publisher<T extends Message> {
 	private final Topic<T> topic;
@@ -34,17 +36,23 @@ public class Publisher<T extends Message> {
 	private final Gson gson = new Gson();
 	private String name = "no_name";
 
-	public Publisher(Topic<T> topic, Participant part) {
+	Publisher(Topic<T> topic, Participant part) {
 		this.topic = topic;
 		this.participant = part;
 	}
 	
-	
+	/**
+	 * Sets the name of this publisher. The name is automatically set in all messages sent by this publisher.
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 	
 
+	/**
+	 * Write a data sample to OPS. When this method return, the data is serialized and unreliably sent to all subscribers.
+	 * @param data
+	 */
 	public void write(T data) {
 
 		data.publisherName = name;
@@ -55,8 +63,19 @@ public class Publisher<T extends Message> {
 
 	}
 
+	/**
+	 * Sends a raw string of data on this publishers topic, encoded with UTF-8.
+	 * Note that no type checks will occur when using this method.
+	 * @param string
+	 */
 	public void writeRaw(String string) {
-		participant.getSender().sendTo(string.getBytes(),topic);
+		try {
+			participant.getSender().sendTo(string.getBytes("UTF-8"),topic);
+		} catch (UnsupportedEncodingException e) {
+			// should never, ever happen on supported platforms
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
 		
 	}
 	

@@ -39,10 +39,7 @@ import ops.data.Message;
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
 
-/**
- * 
- * @author Anton
- */
+
 class MulticastParticipant extends Participant implements
 		ReceiverListener {
 

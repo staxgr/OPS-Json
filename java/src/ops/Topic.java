@@ -20,10 +20,6 @@
 package ops;
 
 
-/**
- *
- * @author Anton
- */
 public class Topic<T> {
     
 	private final String name;

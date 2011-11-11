@@ -19,6 +19,11 @@
 */
 package ops.data;
 
+/**
+ * This is the base class for all top-level classes serialized with OPS-Json.
+ * @author staxgr
+ *
+ */
 public class Message {
 	
 	public String publisherName;
@@ -26,6 +31,4 @@ public class Message {
 	public String key;
 	public String topicName;
 	public String dataType;
-
-
 }
