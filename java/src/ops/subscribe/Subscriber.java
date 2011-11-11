@@ -2,17 +2,13 @@ package ops.subscribe;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-
-import org.w3c.dom.ls.LSInput;
-
-import com.google.gson.Gson;
-import com.google.gson.JsonParseException;
 
 import ops.Topic;
 import ops.participant.Message;
 import ops.participant.Participant;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonParseException;
 
 public class Subscriber<T extends Message> {
 	private final Topic<T> topic;
@@ -76,6 +72,7 @@ public class Subscriber<T extends Message> {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public void onNewData(String json) {
 		if (printOnly) {
 			System.out.println(json);

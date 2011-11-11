@@ -69,7 +69,7 @@ public class DiscoveryClientTest {
 
 	@Test
 	public void testRegisterPublisher() {
-		String dataType = "FooData";
+
 		int port = 8989;
 		String address = "1.1.1.1";
 		String topic = "TestTopic";
@@ -152,7 +152,7 @@ public class DiscoveryClientTest {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				ClientResponse response = client.commit(topic, data);				
+				client.commit(topic, data);				
 			}
 		}).start();
 		

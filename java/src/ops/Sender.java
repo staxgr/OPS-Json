@@ -10,6 +10,6 @@ package ops;
  */
 public interface Sender
 {
-    boolean sendTo(byte[] bytes, Topic topic);
+    boolean sendTo(byte[] bytes, Topic<?> topic);
     
 }

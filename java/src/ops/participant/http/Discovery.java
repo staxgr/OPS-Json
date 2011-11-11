@@ -1,21 +1,16 @@
 package ops.participant.http;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.ws.rs.GET;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
-import ops.participant.Message;
-
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 
 @Path("/discovery")
 public class Discovery {
@@ -61,16 +56,16 @@ public class Discovery {
 		
 	}
 
-	private static void postSend(final List<SubscriberDescriptor> subsToSendTo, final String jsonData) {
-		for (SubscriberDescriptor sub : subsToSendTo) {
-			sendTo(sub, jsonData);
-		}
-		
-	}
+//	private static void postSend(final List<SubscriberDescriptor> subsToSendTo, final String jsonData) {
+//		for (SubscriberDescriptor sub : subsToSendTo) {
+//			sendTo(sub, jsonData);
+//		}
+//		
+//	}
 
-	private static void sendTo(SubscriberDescriptor sub, String jsonData) {
-				
-	}
+//	private static void sendTo(SubscriberDescriptor sub, String jsonData) {
+//				
+//	}
 
 	@GET
 	@Produces("text/html;charset=UTF-8")

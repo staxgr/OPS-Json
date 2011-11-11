@@ -5,14 +5,13 @@
 
 package ops;
 
-import ops.participant.Message;
 
 /**
  *
  * @author Anton
  */
 public class Topic<T> {
-    public static final int DEFAULT_TTL = 1;
+    
 	private final String name;
 	private final int port;
 

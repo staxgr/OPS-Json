@@ -20,7 +20,6 @@ public class Publisher<T extends Message> {
 	private final Participant participant;
 	private final Gson gson = new Gson();
 	private String name = "no_name";
-	private String key = "";
 
 	public Publisher(Topic<T> topic, Participant part) {
 		this.topic = topic;
@@ -35,7 +34,6 @@ public class Publisher<T extends Message> {
 
 	public void write(T data) {
 
-		
 		data.publisherName = name;
 		data.dataType = data.getClass().getName();
 		data.topicName = topic.getName();
@@ -43,7 +41,6 @@ public class Publisher<T extends Message> {
 		participant.getSender().sendTo(gson.toJson(data).getBytes(),topic);
 
 	}
-
 
 	public void writeRaw(String string) {
 		participant.getSender().sendTo(string.getBytes(),topic);

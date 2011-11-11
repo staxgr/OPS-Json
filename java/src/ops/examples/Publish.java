@@ -1,7 +1,5 @@
 package ops.examples;
 
-import ops.FulData;
-import ops.SomeData;
 import ops.Topic;
 import ops.participant.Participant;
 import ops.publish.Publisher;

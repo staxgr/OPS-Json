@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import ops.FulData;
-import ops.SomeData;
 import ops.Topic;
+import ops.examples.FulData;
+import ops.examples.SomeData;
 import ops.participant.Participant;
 import ops.publish.Publisher;
 import ops.subscribe.Subscriber.OwnershipKind;

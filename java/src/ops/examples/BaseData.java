@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package ops;
+package ops.examples;
 
 import ops.participant.Message;
 

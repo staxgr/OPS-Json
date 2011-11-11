@@ -36,6 +36,8 @@ import com.google.gson.JsonParseException;
 public class MulticastParticipant extends Participant implements
 		ReceiverListener {
 
+	public static final int DEFAULT_TTL = 1;
+	
 	final MulticastSender sender;
 
 	private final int basePort;
@@ -124,7 +126,7 @@ public class MulticastParticipant extends Participant implements
 		try {
 			MulticastSocket multicastSocket = MulticastSocketCreator
 					.getMulticastSocket(basePort + topic.getPort());
-			multicastSocket.setTimeToLive(Topic.DEFAULT_TTL);
+			multicastSocket.setTimeToLive(DEFAULT_TTL);
 			SocketAddress mcSocketAddress = new InetSocketAddress(address,
 					basePort + topic.getPort());
 			multicastSocket.joinGroup(mcSocketAddress, NetworkInterface

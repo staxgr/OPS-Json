@@ -1,4 +1,4 @@
-package ops;
+package ops.examples;
 
 public class FulData {
 	public int i;

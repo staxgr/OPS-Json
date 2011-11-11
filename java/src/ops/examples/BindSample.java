@@ -1,6 +1,5 @@
 package ops.examples;
 
-import ops.SomeData;
 import ops.bind.OpsBinder;
 import ops.bind.Participate;
 import ops.bind.Subscribe;

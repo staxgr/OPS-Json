@@ -11,8 +11,6 @@ import java.net.InetAddress;
 import java.net.MulticastSocket;
 import java.net.NetworkInterface;
 import java.net.UnknownHostException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -82,7 +80,7 @@ public class MulticastSender implements Sender
 
     }
 	@Override
-	public boolean sendTo(byte[] bytes, Topic topic) {
+	public boolean sendTo(byte[] bytes, Topic<?> topic) {
 		return sendTo(bytes, ip, basePort + topic.getPort());
 		
 	}

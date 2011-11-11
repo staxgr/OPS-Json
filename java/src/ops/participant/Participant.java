@@ -8,7 +8,6 @@ package ops.participant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.logging.Logger;
 
 import ops.Sender;
 import ops.Topic;
@@ -23,12 +22,11 @@ import ops.subscribe.Subscriber;
 public abstract class Participant {
     private static HashMap<String, Participant> instances = new HashMap<String, Participant>();
 
-    private static Logger logger = Logger.getLogger(Participant.class.getName());
+    //private static Logger logger = Logger.getLogger(Participant.class.getName());
 
     public static Participant get(String domainDescriptor)
     {
         
-
         Participant part = instances.get(domainDescriptor);
         if(part== null) {
             part = ParticipantFactory.get(domainDescriptor);
@@ -41,7 +39,7 @@ public abstract class Participant {
         return part;
     }
     
-    protected List<Subscriber> subscribers = new ArrayList<Subscriber>();
+    protected List<Subscriber<?>> subscribers = new ArrayList<Subscriber<?>>();
 
     
     

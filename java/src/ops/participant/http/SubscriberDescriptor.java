@@ -29,5 +29,9 @@ public class SubscriberDescriptor {
 	public String getAddress() {
 		return address;
 	}
+	
+	public int getPort() {
+		return port;
+	}
 
 }
