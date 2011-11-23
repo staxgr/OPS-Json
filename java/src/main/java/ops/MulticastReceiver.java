@@ -33,8 +33,7 @@ class MulticastReceiver extends Receiver implements Runnable {
 	private final MulticastSocket multicastSocket;
 	private final Thread thread;
 	private boolean keepRunning;
-	byte[] buf = new byte[DGRAM_MAX_SIZE];
-	DatagramPacket packet = new DatagramPacket(buf, buf.length);
+	
 
 	public MulticastReceiver(MulticastSocket multicastSocket) {
 		this.multicastSocket = multicastSocket;
@@ -70,6 +69,8 @@ class MulticastReceiver extends Receiver implements Runnable {
 	public void run() {
 		keepRunning = true;
 		while (keepRunning) {
+                    byte[] buf = new byte[DGRAM_MAX_SIZE];
+                    DatagramPacket packet = new DatagramPacket(buf, buf.length);
 			try {
 				multicastSocket.receive(packet);
 				if (packet.getLength() > 0) {

@@ -57,7 +57,7 @@ class GsonRestClient {
 			HttpClient client = new DefaultHttpClient();
 			HttpGet httpGet = new HttpGet(baseUrl + url + addParams);
 			HttpResponse execute = client.execute(httpGet);
-			return gson.fromJson(new InputStreamReader(execute.getEntity().getContent()), listType);
+			return (D)gson.fromJson(new InputStreamReader(execute.getEntity().getContent()), listType);
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 			return null;		

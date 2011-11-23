@@ -21,6 +21,7 @@ package ops;
 
 class EmptyMessage {
 	public String publisherName;
+        public int strength;
 	public String key;
 	public String topicName;
 	public String dataType;
